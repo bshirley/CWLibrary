@@ -1,6 +1,6 @@
 //
 //  NSString+StripHTML.m
-//  Gwee
+//  CWLibrary
 //
 //  Copyright 2011 Leigh McCulloch. Released under the MIT license.
 //  http://www.codeilove.com/2011/09/ios-dev-strip-html-tags-from-nsstring.html

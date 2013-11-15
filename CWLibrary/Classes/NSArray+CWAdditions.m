@@ -1,6 +1,6 @@
 //
 //  NSArray+Additions.m
-//  Gwee
+//  CWLibrary
 //
 //  Created by Bill Shirley on 11/14/13.
 //  Copyright (c) 2013 Bill Shirley. All rights reserved.

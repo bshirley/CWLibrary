@@ -1,10 +1,8 @@
 //
 //  NSDate+RFC822.m
-//  Gwee
+//  CWLibrary
 //
-//  Created by Bill Shirley on 8/1/13.
-//  Borrowed from http://forrst.com/posts/NSDate_from_Internet_Date_Time_String-evA
-//  Copyright (c) 2013 Bill Shirley.
+//  Borrowed from Michael Waterfall http://forrst.com/posts/NSDate_from_Internet_Date_Time_String-evA
 
 
 #import "NSDate+RFC822.h"

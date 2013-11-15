@@ -45,21 +45,24 @@
 
 
 - (NSArray *)oldItemsNotInNewArray:(NSArray *)newValues {
-  NSMutableArray *oldValues = [self.plist mutableCopy];
-  [newValues enumerateObjectsUsingBlock:^(NSDictionary *newItem, NSUInteger idx, BOOL *stop) {
-    NSString *itemId = newItem[_uniqueKey];
-    __block NSUInteger oldIndex = NSNotFound;
-    [oldValues enumerateObjectsUsingBlock:^(NSDictionary *oldItem, NSUInteger idx, BOOL *stop) {
-      NSString *oldItemId = oldItem[_uniqueKey];
-      if ([itemId isEqualToString:oldItemId]) {
-        oldIndex = idx;
+  NSMutableArray *deletedItems = [NSMutableArray array];
+  
+  [_plist enumerateObjectsUsingBlock:^(NSDictionary *oldItem, NSUInteger idx, BOOL *stop) {
+    NSString *oldId = oldItem[_uniqueKey];
+    __block NSUInteger newItemIndex = NSNotFound;
+    [newValues enumerateObjectsUsingBlock:^(NSDictionary *newItem, NSUInteger idx, BOOL *stop) {
+      NSString *newId = newItem[_uniqueKey];
+      if ([newId isEqualToString:oldId]) {
+        newItemIndex = idx;
         *stop = YES;
       }
     }];
-    [oldValues removeObjectAtIndex:oldIndex];
+    if (newItemIndex == NSNotFound) {
+      [deletedItems addObject:oldItem];
+    }
   }];
   
-  return oldValues;
+  return deletedItems;
 }
 
 

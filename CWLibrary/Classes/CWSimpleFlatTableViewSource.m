@@ -1,6 +1,6 @@
 //
 //  TableViewSource.m
-//  Gwee
+//  CWLibrary
 //
 //  Created by Bill Shirley on 11/9/13.
 //  Copyright (c) 2013 Bill Shirley. All rights reserved.
@@ -170,6 +170,7 @@
 
 - (NSArray *)itemsForSection:(NSString *)sectionName {
   NSUInteger sectionIndex = [_discoveredSectionNames indexOfObject:sectionName];
+  if (sectionIndex == NSNotFound)
   NSAssert(sectionIndex != NSNotFound, @"The value '%@' is not a valid section name", sectionName);
   return [self itemsForSectionIndex:sectionIndex];
 }
@@ -208,13 +209,14 @@
   
   if (oldItems.count > 0) {
     NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:oldItems.count];
-    [self.plist enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+    [oldItems enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
       NSIndexPath *indexPath = [self indexPathForItem:item];
       [indexPaths addObject:indexPath];
       
       [self _deleteItem:item];
     }];
     
+#warning not hangling tableview management for deleting the last item of a section
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
   }
   
@@ -227,16 +229,37 @@
 
   if (newItems.count > 0) {
     NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:newItems.count];
+    NSMutableArray *newSectionNames = [NSMutableArray array];
     [newItems enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
       NSString *sectionName = item[_sectionKey];
       NSUInteger section = [self.sectionNames indexOfObject:sectionName];
-      NSArray *itemsInSection = [self itemsForSection:sectionName];
-      NSUInteger row = itemsInSection.count;
-      [self _addItem:item];
-      [indexPaths addObject:[NSIndexPath indexPathForRow:row inSection:section]];
+      if (section == NSNotFound) {
+        [self _addItem:item];
+        [newSectionNames addObject:sectionName];
+      } else {
+        NSArray *itemsInSection = [self itemsForSection:sectionName];
+        NSUInteger row = itemsInSection.count;
+        [self _addItem:item];
+        [indexPaths addObject:[NSIndexPath indexPathForRow:row inSection:section]];
+      }
     }];
-    
-    [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    [newSectionNames enumerateObjectsUsingBlock:^(NSString *sectionName, NSUInteger idx, BOOL *stop) {
+      NSUInteger index = [self.sectionNames indexOfObject:sectionName];
+      [indexSet addIndex:index];
+    }];
+    if (indexSet.count > 0) {
+      [tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+      [[indexPaths copy] enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+        if ([indexSet containsIndex:indexPath.section]) {
+          [indexPaths removeObject:indexPath];
+        }
+      }];
+    }
+    if (indexPaths.count > 0) {
+      [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 //
 //  NSString+StripHTML.h
-//  Gwee
+//  CWLibrary
 //
 //  Created by Bill Shirley on 8/14/13.
 //  Copyright (c) 2013 Bill Shirley. All rights reserved.
@@ -11,3 +11,4 @@
 @interface NSString (StripHTML)
 - (NSString *)stripHtml;
 @end
+
