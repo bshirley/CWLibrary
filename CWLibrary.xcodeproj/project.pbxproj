@@ -15,7 +15,6 @@
 		9D9C171D183582FF00B2E14E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C171C183582FF00B2E14E /* main.m */; };
 		9D9C1721183582FF00B2E14E /* CWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C1720183582FF00B2E14E /* CWAppDelegate.m */; };
 		9D9C1724183582FF00B2E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9C1722183582FF00B2E14E /* Main.storyboard */; };
-		9D9C1727183582FF00B2E14E /* CWFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C1726183582FF00B2E14E /* CWFirstViewController.m */; };
 		9D9C172A183582FF00B2E14E /* CWSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C1729183582FF00B2E14E /* CWSecondViewController.m */; };
 		9D9C172C183582FF00B2E14E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9C172B183582FF00B2E14E /* Images.xcassets */; };
 		9D9C1733183582FF00B2E14E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9C1732183582FF00B2E14E /* XCTest.framework */; };
@@ -31,6 +30,7 @@
 		9D9C175F183585CE00B2E14E /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C1759183585CE00B2E14E /* NSString+StripHTML.m */; };
 		9D9C176E18358A5900B2E14E /* NSMutableArray+CWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C176B18358A5900B2E14E /* NSMutableArray+CWAdditions.m */; };
 		9D9C176F18358A5900B2E14E /* UIImage+CWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C176D18358A5900B2E14E /* UIImage+CWAdditions.m */; };
+		9DCA46E2184541E300F37F36 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCA46E1184541E300F37F36 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,6 @@
 		9D9C171F183582FF00B2E14E /* CWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWAppDelegate.h; sourceTree = "<group>"; };
 		9D9C1720183582FF00B2E14E /* CWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWAppDelegate.m; sourceTree = "<group>"; };
 		9D9C1723183582FF00B2E14E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9D9C1725183582FF00B2E14E /* CWFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWFirstViewController.h; sourceTree = "<group>"; };
-		9D9C1726183582FF00B2E14E /* CWFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWFirstViewController.m; sourceTree = "<group>"; };
 		9D9C1728183582FF00B2E14E /* CWSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWSecondViewController.h; sourceTree = "<group>"; };
 		9D9C1729183582FF00B2E14E /* CWSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWSecondViewController.m; sourceTree = "<group>"; };
 		9D9C172B183582FF00B2E14E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		9D9C176B18358A5900B2E14E /* NSMutableArray+CWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+CWAdditions.m"; sourceTree = "<group>"; };
 		9D9C176C18358A5900B2E14E /* UIImage+CWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CWAdditions.h"; sourceTree = "<group>"; };
 		9D9C176D18358A5900B2E14E /* UIImage+CWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CWAdditions.m"; sourceTree = "<group>"; };
+		9DCA46E0184541E300F37F36 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		9DCA46E1184541E300F37F36 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +224,8 @@
 				9D9C171F183582FF00B2E14E /* CWAppDelegate.h */,
 				9D9C1720183582FF00B2E14E /* CWAppDelegate.m */,
 				9D9C1722183582FF00B2E14E /* Main.storyboard */,
-				9D9C1725183582FF00B2E14E /* CWFirstViewController.h */,
-				9D9C1726183582FF00B2E14E /* CWFirstViewController.m */,
+				9DCA46E0184541E300F37F36 /* TestViewController.h */,
+				9DCA46E1184541E300F37F36 /* TestViewController.m */,
 				9D9C1728183582FF00B2E14E /* CWSecondViewController.h */,
 				9D9C1729183582FF00B2E14E /* CWSecondViewController.m */,
 				9D9C172B183582FF00B2E14E /* Images.xcassets */,
@@ -367,11 +367,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9C175A183585CE00B2E14E /* CWRemotePersistentList.m in Sources */,
+				9DCA46E2184541E300F37F36 /* TestViewController.m in Sources */,
 				9D9C176F18358A5900B2E14E /* UIImage+CWAdditions.m in Sources */,
 				9D9C175C183585CE00B2E14E /* CWUpdatablePropertyListWrapper.m in Sources */,
 				9D9C172A183582FF00B2E14E /* CWSecondViewController.m in Sources */,
 				9D9C175F183585CE00B2E14E /* NSString+StripHTML.m in Sources */,
-				9D9C1727183582FF00B2E14E /* CWFirstViewController.m in Sources */,
 				9D9C175E183585CE00B2E14E /* NSDate+RFC822.m in Sources */,
 				9D9C175D183585CE00B2E14E /* NSArray+CWAdditions.m in Sources */,
 				9D9C175B183585CE00B2E14E /* CWSimpleFlatTableViewSource.m in Sources */,

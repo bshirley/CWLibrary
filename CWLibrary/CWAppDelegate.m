@@ -10,6 +10,14 @@
 
 @implementation CWAppDelegate
 
+- (UIViewController *)tableViewController {
+  UITabBarController *rvc = (UITabBarController *)self.window.rootViewController;
+  UITableViewController *tvc = rvc.viewControllers[0];
+  return tvc;
+}
+
+#pragma - template code
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

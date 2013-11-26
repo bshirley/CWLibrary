@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "CWSimpleFlatTableViewSource.h"
+#import "TestViewController.h"
+#import "CWAppDelegate.h"
 
 
 @interface CWSimpleFlatTableViewSourceTest : XCTestCase
@@ -178,11 +180,13 @@
   XCTAssertEqual((NSUInteger)1, source.plist.count, @"a no-op update didn't cause a problem");
 }
 
-- (void)testA_modifications {
+- (void)subtestA_modifications:(TestViewController *)tvc {
   CWSimpleFlatTableViewSource *source = [[CWSimpleFlatTableViewSource alloc] initWithArray:_model[@"testa-base"]];
   source.sectionKey = @"cat";
   source.uniqueKey = @"uid";
   source.updatableKeys = @[@"dat"];
+  
+  XCTAssertNoThrow(tvc.source = source, @"Expecting passed argument to be a valid class type");
   
   XCTAssertEqual((NSUInteger)2, source.plist.count, @"underlying setup correct");
   XCTAssertEqual((NSUInteger)1, source.sectionNames.count, @"one section");
@@ -261,6 +265,15 @@
   XCTAssertEqualObjects(@"Section2", source.sectionNames[0], @"expected section name");
 
   
+}
+
+- (void)testA_modifications_withoutTable {
+  [self subtestA_modifications:nil];
+}
+
+- (void)testA_modifications_withTable {
+  TestViewController *tvc = (TestViewController *)[(CWAppDelegate *)[[UIApplication sharedApplication] delegate] tableViewController];
+  [self subtestA_modifications:tvc];
 }
 
 @end
